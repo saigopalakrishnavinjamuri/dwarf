@@ -23,8 +23,8 @@ DWARF is an AI-powered website generator similar to [v0.dev](https://v0.dev), [b
 
 ### **1. Clone the Repository**  
 ```sh
-git clone 
-cd DWARF
+git clone https://github.com/saigopalakrishnavinjamuri/dwarf.git
+cd dwarf
 ```
 
 ### **2. Install Dependencies**  
