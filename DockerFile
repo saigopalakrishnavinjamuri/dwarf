@@ -1,0 +1,38 @@
+# 1️⃣ Build Stage: Install dependencies & build the Next.js app
+FROM node:20-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json first (optimizing layer caching)
+COPY package.json package-lock.json ./
+
+# Install production dependencies (omit dev dependencies)
+RUN npm ci --omit=dev
+
+# Copy the entire project (after installing dependencies)
+COPY . .
+
+# Build the Next.js app
+RUN npm run build
+
+# 2️⃣ Production Stage: Create a lightweight image for running the app
+FROM node:20-alpine AS runner
+
+# Set working directory
+WORKDIR /app
+
+# Copy only the necessary built files from the builder stage
+COPY --from=builder /app/package.json /app/package-lock.json ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
+
+# Copy .env.local file (important for Convex DB and API keys)
+COPY .env.local .env.local
+
+# Expose the Next.js default port
+EXPOSE 3000
+
+# Start the Next.js server
+CMD ["npm", "run", "start"]

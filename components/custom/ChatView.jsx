@@ -81,13 +81,13 @@ const ChatView = () => {
         setLoading(false);
     }
 
-    // const onGenerate = async (input) => {
-    //     setMessages(prev => [...prev, {
-    //         role: 'user',
-    //         content: input,
-    //     }])
-    //     setUserPrompt('');
-    // }
+    const onGenerate = async (input) => {
+        setMessages(prev => [...prev, {
+            role: 'user',
+            content: input,
+        }])
+        setUserPrompt('');
+    }
 
     return (
         <div className="h-full overflow-hidden flex flex-col justify-between pb-3 px-2 py-2 border border-white border-opacity-5 rounded-lg">
@@ -108,10 +108,10 @@ const ChatView = () => {
                 )}
             </div>
 
-            {/* <div className="flex rounded-md mt-8 h-16 w-full">
+            <div className="flex rounded-md mt-8 h-16 w-full">
                 <input onChange={(e) => setUserPrompt(e.target.value)} value={userPrompt} type="text" className="h-full w-[90%] px-4 outline-none rounded-l-md" placeholder={Lookup.INPUT_PLACEHOLDER} name="prompt" />
                 <ArrowUp onClick={() => onGenerate(userPrompt)} size={20} className="cursor-pointer w-[10%] font-semibold bg-purple-700  text-white rounded-r-md h-full p-2" />
-            </div> */}
+            </div>
         </div>
     );
 };
