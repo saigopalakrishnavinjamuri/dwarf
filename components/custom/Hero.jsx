@@ -68,22 +68,41 @@ const Hero = () => {
                 <h1 className="font-bold text-6xl">{Lookup.HERO_HEADING}</h1>
                 <p className="text-lg mt-4 text-gray-400">{Lookup.HERO_DESC}</p>
 
-                <div className="flex rounded-md mt-16 h-16 w-[30vw]">
-                    <input value={userPrompt} onChange={(e) => setUserPrompt(e.target.value)} type="text" className="h-full w-[90%] px-4 outline-none rounded-l-md" placeholder={Lookup.INPUT_PLACEHOLDER} name="prompt" />
-                    <ArrowRight onClick={() => onGenerate(userPrompt)} size={40} className="cursor-pointer w-[10%] font-bold bg-purple-700  text-white rounded-r-md h-full p-4" />
-                </div>
-                <div className="flex flex-col mt-8 text-xl text-gray-400 justify-center items-center">
-                    <h4> Example Prompts like</h4>
-                    <div className="flex flex-col items-center justify-center border-1 border-purple-500 p-2">
-                        <p className="text-purple-700 cursor-pointer text-lg mt-2">{Lookup.Example_prompt}</p>
-                    </div>
-                    <div className="flex flex-col items-center justify-center border-1 border-purple-500 p-2">
-                        <p className="text-purple-700 cursor-pointer text-lg">{Lookup.Example_prompt1}</p>
-                    </div>
-                    <div className="flex flex-col items-center justify-center border-1 border-purple-500 p-2">
-                        <p className="text-purple-700 cursor-pointer text-lg">{Lookup.Example_prompt2}</p>
-                    </div>
-                </div>
+                <div className="flex rounded-md mt-16 h-14 w-[35vw] border border-gray-600 bg-gray-800 shadow-md">
+    <input 
+        value={userPrompt} 
+        onChange={(e) => setUserPrompt(e.target.value)} 
+        type="text" 
+        className="h-full w-[85%] px-4 outline-none rounded-l-md bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500" 
+        placeholder={Lookup.INPUT_PLACEHOLDER} 
+        name="prompt" 
+    />
+    <div 
+        onClick={() => onGenerate(userPrompt)} 
+        className="cursor-pointer w-[15%] bg-purple-700 text-white rounded-r-md flex items-center justify-center hover:bg-purple-600 active:scale-95 transition-all"
+    >
+        <ArrowRight size={24} />
+    </div>
+</div>
+
+
+                <div className="flex flex-row mt-8 text-md text-gray-400 justify-center items-center gap-4 flex-nowrap">
+    <h4 className="font-semibold text-gray-300 whitespace-nowrap">Example Prompts like</h4>
+    
+    {[Lookup.Example_prompt, Lookup.Example_prompt1, Lookup.Example_prompt2].map((prompt, index) => (
+        <div 
+            key={index} 
+            className="flex flex-row items-center justify-center border border-gray-600 px-3 py-2 rounded-2xl 
+                       hover:border-gray-400 hover:shadow-lg hover:scale-105 text-center whitespace-nowrap"
+        >
+            <p className="text-purple-400 cursor-pointer text-sm font-medium">{prompt}</p>
+        </div>
+    ))}
+</div>
+
+
+
+
             </div>
             <SigninDialog openDialog={openDialog} closeDialog={(v) => setOpenDialog(false)} />
         </div>

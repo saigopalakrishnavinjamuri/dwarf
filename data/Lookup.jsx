@@ -9,7 +9,7 @@ export default {
   SIGNIN_SUBHEADING: 'To use Bolt you must log into an existing account or create one.',
   SIGNIn_AGREEMENT_TEXT: 'By using Bolt, you agree to the collection of usage data for analytics.',
   Example_prompt: 'Create a To-Do App',
-  Example_prompt1: 'Build a mobile app that ',
+  Example_prompt1: 'Build a Expense Tracker' ,
   Example_prompt2: 'Create a Gym Management Portal',
 
 
