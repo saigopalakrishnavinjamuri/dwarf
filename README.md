@@ -2,7 +2,7 @@
 A website that builds other websites 🚀  
 
 ## **Overview**  
-DWARF is an AI-powered website generator similar to [v0.dev](https://v0.dev), [bolt.new](https://bolt.new), and [lovable.ai](https://lovable.ai). It uses **Gemini AI** to generate website code and **Convex** as the backend database.
+A web-based, AI-driven tool that allows users to generate fully functional, responsive websites through simple inputs, without any coding knowledge. It uses **Gemini AI** to generate website code and **Convex** as the backend database.
 
 ## **Features**  
 ✅ AI-generated websites using **Gemini API**  
@@ -87,10 +87,3 @@ Contributions are welcome! If you want to add features or fix bugs:
 4. Open a pull request  
 
 ---
-
-## **License**  
-MIT License. Feel free to use and modify!  
-
----
-
-🔥 **Built by [Srisailam Kakurala](https://github.com/SrisailamKakurala)**  
